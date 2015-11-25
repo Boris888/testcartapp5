@@ -1,0 +1,40 @@
+<h1>Plats#index</h1>
+<p>Find me in app/views/plats/index.html.erb</p>
+
+
+<h1>plats</h1>
+<ul>
+  <% @plats.each do |plat| %>
+    <li><%= link_to plat.name, plat_path(plat) %></li>
+  <% end %>
+</ul>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+
+<%= simple_form_for([ @testorder ]) do |form| %>
+
+
+  <%= form.input :state, :input_html => { :value => ' le statut est ok' } %>
+
+
+
+
+  <%= form.button :submit %>
+<% end %>
+
+    </div>
+  </div>
+</div>
+
+<br>
+<p>ssssssssssssssssssssssssssssssssssssssssssssssssssss</p>
+
+<%= form_for(@testorder) do |f| %>
+
+  <%= %>
+  <%= f.submit %>
+<% end %>

@@ -1,5 +1,36 @@
 Rails.application.routes.draw do
+  get 'plats/index'
+
+  get 'plats/show'
+
+  get 'plats/new'
+
+  get 'plats/create'
+
+  get 'plats/edit'
+
+  get 'plats/update'
+
+  get 'plats/destroy'
+
+  get 'testorders/index'
+
+  get 'testorders/show'
+
+  get 'testorders/new'
+
+  get 'testorders/create'
+
+  get 'testorders/edit'
+
+  get 'testorders/update'
+
+  get 'testorders/destroy'
+
   get 'payments/new'
+
+  resources :testorders
+  resources :plats
 
   # get 'orders/index'
 

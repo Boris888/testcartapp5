@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928125500) do
+ActiveRecord::Schema.define(version: 20151124042745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,44 @@ ActiveRecord::Schema.define(version: 20150928125500) do
     t.datetime "updated_at",                      null: false
   end
 
+  create_table "plats", force: :cascade do |t|
+    t.string   "sku"
+    t.integer  "prix"
+    t.string   "name"
+    t.integer  "testorder_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "plats", ["testorder_id"], name: "index_plats_on_testorder_id", using: :btree
+
+  create_table "product3s", force: :cascade do |t|
+    t.string   "sku"
+    t.string   "name"
+    t.integer  "price"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "product3s", ["order_id"], name: "index_product3s_on_order_id", using: :btree
+
+  create_table "testorders", force: :cascade do |t|
+    t.string   "state"
+    t.string   "tp_sku"
+    t.integer  "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "testproducts", force: :cascade do |t|
+    t.string   "sku"
+    t.integer  "tpprice"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -66,4 +104,6 @@ ActiveRecord::Schema.define(version: 20150928125500) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "plats", "testorders"
+  add_foreign_key "product3s", "orders"
 end

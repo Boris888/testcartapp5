@@ -1,0 +1,22 @@
+<h1>Plats#new</h1>
+<p>Find me in app/views/plats/new.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+
+<%= simple_form_for([ @testorder ]) do |form| %>
+
+
+  <%= form.input :sku %>
+  <%= form.input :name %>
+  <%= form.input :price %>
+
+
+  <%= form.button :submit %>
+<% end %>
+
+
+    </div>
+  </div>
+</div>

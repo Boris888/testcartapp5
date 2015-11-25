@@ -1,0 +1,10 @@
+<h1>Testorders#index</h1>
+<p>Find me in app/views/testorders/index.html.erb</p>
+
+
+<h1>testorders</h1>
+<ul>
+  <% @testorders.each do |testorder| %>
+    <li><%= link_to testorder.name, testorder_path(testorder) %></li>
+  <% end %>
+</ul>
